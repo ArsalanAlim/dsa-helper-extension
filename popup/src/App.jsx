@@ -23,13 +23,19 @@ function App() {
             return;
           }
 
-          const res = await fetch('http://localhost:5000/api/hint', {
+          // const res = await fetch('http://localhost:5000/api/hint', {
+          //   method: 'POST',
+          //   headers: {
+          //     'Content-Type': 'application/json',
+          //   },
+          //   body: JSON.stringify({ question, code }),
+          // });
+          const res = await fetch('https://dsa-helper-extension.vercel.app/', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ question, code }),
           });
+
 
           const data = await res.json();
           setHint(data.hint || "⚠️ Couldn't get hint.");
@@ -43,7 +49,7 @@ function App() {
     }
   };
 
-    return (
+  return (
     <div className="w-80 p-4 bg-white min-h-[200px] font-sans">
       <h1 className="text-xl font-bold text-center text-gray-800 mb-4">💡 DSA Buddy</h1>
 
@@ -57,11 +63,10 @@ function App() {
 
       {hint && (
         <div
-          className={`mt-4 p-3 text-sm rounded-lg animate-fade-in transition-all duration-300 border ${
-            hint.includes('✅')
+          className={`mt-4 p-3 text-sm rounded-lg animate-fade-in transition-all duration-300 border ${hint.includes('✅')
               ? 'bg-green-50 text-green-800 border-green-300'
               : 'bg-yellow-50 text-yellow-800 border-yellow-300'
-          }`}
+            }`}
         >
           {hint}
         </div>

@@ -12,8 +12,8 @@ app.use(express.json());
 
 // Initialize Gemini
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
-app.post('/api/hint', async (req, res) => {
+//replaccing /api/hint with /
+app.post('/', async (req, res) => {
     const { question, code } = req.body;
 
     if (!question || !code) {
