@@ -7,7 +7,14 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: [
+    'chrome-extension://jekdoopkpdbnechikfapkbgdleamlbkb', // Your actual extension ID
+    'http://localhost:5173' // Optional: For local dev
+  ]
+}));
+
 app.use(express.json());
 
 // Initialize Gemini
