@@ -13,7 +13,7 @@ app.use(express.json());
 // Initialize Gemini
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 //replaccing /api/hint with https://dsa-helper-extension.vercel.app/
-app.post('https://dsa-helper-extension.vercel.app/', async (req, res) => {
+app.post('/api/hint', async (req, res) => {
     const { question, code } = req.body;
 
     if (!question || !code) {

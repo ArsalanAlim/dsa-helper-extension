@@ -30,7 +30,8 @@ function App() {
           //   },
           //   body: JSON.stringify({ question, code }),
           // });
-          const res = await fetch('https://dsa-helper-extension.vercel.app/', {
+
+          const res = await fetch('https://dsa-helper-extension.vercel.app/api/hint', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ question, code }),
